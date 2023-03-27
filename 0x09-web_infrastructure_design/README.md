@@ -12,5 +12,5 @@
 - What is HTTPS
 - What is a firewall
 
-![Sample pix of a web infrastructure.]
-(https://imgur.com/a/ifuRvmK)
+# Web Infrastructure Design
+![Sample pix of a web infrastructure.](https://imgur.com/a/ifuRvmK).
