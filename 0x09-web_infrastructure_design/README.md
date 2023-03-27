@@ -10,5 +10,7 @@
 - How to avoid downtime when deploying new code
 - High availability cluster (active-active/active-passive)
 - What is HTTPS
-- What is a firewall 
-![Sample pix of a web infrastructure.](https://imgur.com/a/ifuRvmK)
+- What is a firewall
+
+![Sample pix of a web infrastructure.]
+(https://imgur.com/a/ifuRvmK)
