@@ -2,7 +2,10 @@
 
 This project contains tasks for learning more about the different ways a web infrastructure could be designed for web development.
 
-## Tasks To Complete
+## Tasks To Complete:
+
+##images:
+The image folder houses all of the picture illustration of each task
 
     0. Simple web stack
     0-simple_web_stack contains the URL of an image containing the design of a one server web infrastructure that hosts the website that is reachable via www.foobar.com. Start your explanation by having a user wanting to access your website.
