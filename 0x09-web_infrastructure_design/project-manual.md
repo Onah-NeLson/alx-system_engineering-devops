@@ -4,7 +4,7 @@ This project contains tasks for learning more about the different ways a web inf
 
 ## Tasks To Complete:
 
-##images:
+## images:
 The image folder houses all of the picture illustration of each task
 
     0. Simple web stack
