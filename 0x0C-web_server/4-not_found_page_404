@@ -1,30 +1,18 @@
-# The intent of this puppet script  is to  install nginx web server and sets up a redirect from /redirect_me to a github profile
+#!/usr/bin/env bash
+#This script Configures My Nginx server to have a custom 404 page
 
-# Install the nginx package if it's not already installed
-package {'nginx':
-  ensure => 'present',
-}
+sudo apt-get update
+sudo apt-get install -y nginx
 
-# Run the command to update the system and install nginx
-exec {'install':
-  command  => 'sudo apt-get update ; sudo apt-get -y install nginx',
-  provider => shell,
-}
+# code to redirect a specific endpoint (eg: redirect /redirect_me to https://blog.ehoneahobed.com)
+echo "Hello World!" | sudo tee /var/www/html/index.html
+string_for_replacement="server_name _;\n\trewrite ^\/redirect_me https:\/\/www.blog.ehoneahobed.com permanent;"
+sudo sed -i "s/server_name _;/$string_for_replacement/" /etc/nginx/sites-enabled/default
 
-# Create a basic HTML file to verify that nginx is working
-exec {'Hello':
-  command  => 'echo "Hello World!" | sudo tee /var/www/html/index.html',
-  provider => shell,
-}
+# code to create error page and add a redirect for error 404
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
+string_for_replacement="listen 80 default_server;\n\terror_page 404 \/404.html;\n\tlocation = \/404.html {\n\t\troot \/var\/www\/html;\n\t\tinternal;\n\t}"
+sudo sed -i "s/listen 80 default_server;/$string_for_replacement/" /etc/nginx/sites-enabled/default
 
-# Configure nginx to redirect /redirect_me to a specific website
-exec {'redirect':
-  command  => 'sudo sed -i "s/listen 80 default_server;/listen 80 default_server;\\n\\tlocation \/redirect_me {\\n\\t\\treturn 301 https:\/\/https://github.com/Onah-NeLson\/;\\n\\t}/" /etc/nginx/sites-available/default',
-  provider => shell,
-}
-
-# Restart nginx to apply the changes
-exec {'restart':
-  command  => 'sudo service nginx restart',
-  provider => shell,
-}
+# restart the server
+sudo service nginx restart
