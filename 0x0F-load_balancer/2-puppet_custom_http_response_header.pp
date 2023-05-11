@@ -1,4 +1,4 @@
-# The inten of this script is to Installs a Nginx server with custom HTTP header
+# The intent of this script is to Installs a Nginx server with custom HTTP header
 
 exec {'update':
   provider => shell,
