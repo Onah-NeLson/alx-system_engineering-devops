@@ -1,0 +1,20 @@
+sudo apt-get -y update
+# Installing ufw
+sudo apt-get install ufw
+
+
+sudo ufw disable
+# Set the default incoming policy to "deny" to block all incoming traffic by running:
+sudo ufw default deny incoming
+
+# Set the default outgoing policy to "allow" to allow  all outgoing traffic by running:
+sudo ufw default allow outgoing
+sudo systemctl stop ufw
+
+# Allow incoming traffic on TCP ports 22, 443, and 80 by running:
+sudo ufw allow 22/tcp
+sudo ufw allow 443/tcp
+sudo ufw allow 80/tcp
+
+# Finally, enable ufw by running:
+sudo ufw enable
